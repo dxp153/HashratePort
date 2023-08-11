@@ -8,8 +8,8 @@ class Token:
     # 获取登录的Token
 
     @staticmethod
-    def login_cooking(data, header):
-        response = Login().login(data, header=header)
+    def login_cooking(base_url, data, header):
+        response = Login(base_url).login(data, header=header)
         token = GetKeyword().json_path(json.loads(response.text), "$.access_token")
         return response, token
 

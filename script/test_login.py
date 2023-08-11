@@ -5,10 +5,7 @@ import json
 import pytest
 import allure
 import yaml
-
-
-with open('../data/login-prarmeter.yml', 'r', encoding='utf-8') as f:
-    result = yaml.load_all(f.read(), Loader=yaml.FullLoader)
+from common.yaml_translation import yamlUtil
 
 
 @allure.epic("登录接口测试")
@@ -16,9 +13,13 @@ class Test_Login:
     """
     接口登录用例
     """
+    # with open('../data/login-prarmeter.yml', 'r', encoding='utf-8') as f:
+    #     result = yaml.load_all(f.read(), Loader=yaml.FullLoader)
+
     @allure.story("用户登录")
-    @pytest.mark.parametrize('para', result)
-    def test_login(self, para):
+    # @pytest.mark.parametrize('para', result)
+    @pytest.mark.parametrize('para', yamlUtil("../data/login-prarmeter.yml").read_yaml())
+    def test_login(self, base_url,  para):
         """
         用户登录
         :return:
@@ -30,11 +31,10 @@ class Test_Login:
             code1 = para[i]['input']['code']
             msg1 = para[i]['input']['msg']
             i += 1
-            response = Login().login(data, headers)
+            response = Login(base_url=base_url).login(data, headers)
             t = response.text
             code = GetKeyword().json_path(json.loads(t), "$.code")
             msg = GetKeyword().json_path(json.loads(t), "$.msg")
-            print(msg)
             if msg:
                 try:
                     assert (code[0] == code1)

@@ -1,0 +1,14 @@
+- case: 账号 15797629873 登录
+  input:
+    data:
+      username: 15797629873
+      password: dddd1234
+      grant_type: password
+      captcha: 123
+    headers:
+      Content-Length: '71'
+      Host: 183.240.23.97
+      Authorization: Basic eXVuc2h1b2lvOnl1bnNodW9pbw==
+      Content-Type: application/x-www-form-urlencoded
+    code: 0
+    msg: False

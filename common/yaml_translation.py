@@ -14,9 +14,9 @@ class yamlUtil:
         读取yaml，将yaml反序列化，就是把我们yaml格式转换成dict格式
         :return:
         """
-        with open(self.yaml_file, encoding="utf-8") as f:
+        with open(self.yaml_file, 'r', encoding="utf-8") as f:
             # 文件流，加载方式
-            value = yaml.load(f, Loader=yaml.FullLoader)
+            value = yaml.load_all(f.read(), Loader=yaml.FullLoader)
             return value
 
 
