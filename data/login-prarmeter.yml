@@ -1,0 +1,29 @@
+- case: 正确的账号密码登录，并验证登录结果
+  input:
+    data:
+      username: 15797629873
+      password: dddd1234
+      grant_type: password
+      captcha: 123
+    headers:
+      Content-Length: '71'
+      Host: 183.240.23.97
+      Authorization: Basic eXVuc2h1b2lvOnl1bnNodW9pbw==
+      Content-Type: application/x-www-form-urlencoded
+    code: 0
+    msg: False
+---
+- case: 不输入密码，并验证登录结果
+  input:
+    data:
+      username: 15797629873
+      password:
+      grant_type: password
+      captcha: 123
+    headers:
+      Content-Length: '71'
+      Host: 183.240.23.97
+      Authorization: Basic eXVuc2h1b2lvOnl1bnNodW9pbw==
+      Content-Type: application/x-www-form-urlencoded
+    code: 10004
+    msg: 账号或密码错误
