@@ -11,7 +11,7 @@ class Token:
     def login_cooking(base_url, data, header):
         response = Login(base_url).login(data, header=header)
         token = GetKeyword().json_path(json.loads(response.text), "$.access_token")
-        return response, token
+        return token
 
         # for token in response.cookies:
         #     cookies = {'Cookie': 'JSESSIONID=%s' % token.value}

@@ -16,10 +16,17 @@ class yamlUtil:
         """
         with open(self.yaml_file, 'r', encoding="utf-8") as f:
             # 文件流，加载方式
+            v = []
             value = yaml.load_all(f.read(), Loader=yaml.FullLoader)
-            return value
+            for i in value:
+                v.append(i)
+            return v
 
 
 if __name__ == '__main__':
-    v = yamlUtil("../data/approval_initiate.yml").read_yaml()
-    print(type(v))
+    yaml_file = "../data/login.yaml"
+    v = yamlUtil("../data/login.yaml").read_yaml()
+    # with open(yaml_file, 'r', encoding="utf-8") as f:
+    #     # 文件流，加载方式
+    #     value = yaml.load_all(f.read(), Loader=yaml.FullLoader)
+    print(v)

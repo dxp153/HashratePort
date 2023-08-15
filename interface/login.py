@@ -1,7 +1,5 @@
 from common.send_method import Send_Method
-from common.get_keyword import GetKeyword
 import requests
-import json
 
 
 #   用户登录
@@ -14,7 +12,6 @@ class Login:
 
     def login(self, data, header):
         response = Send_Method.send_method(self.method, self.url, data=data, headers=header)
-        # print("Login response == %s" % response)
         return response
 
     def login_json(self, data, header):
