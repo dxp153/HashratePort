@@ -39,15 +39,3 @@ class Test_Host_List:
                 assert (code[0] == code1)
                 assert (msg[0] == msg1)
                 print("测试通过 code==%s,%s" % (code, msg))
-
-
-
-                # try:
-                #     assert (code[0] == code1)
-                #     assert (msg[0] == msg1)
-                # except AssertionError:
-                #     print("test_host_list_filtrate 断言失败")
-                #     print("code == %s" % code)
-                #     traceback.print_exc()
-                # else:
-                #     print("测试通过 code==%s,%s" % (code, msg))

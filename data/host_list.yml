@@ -6,3 +6,30 @@
       Authorization:
     code: 0
     msg: success
+---
+- case: 按时长计费，价格区间筛选 0-1
+  input:
+    url: order=&orderField=&page=1&limit=10&priceMethod=1&regionId=&gpuModelId=&gpuNum=&gpuCardAvailable=&minPrice=0&maxPrice=1&sort=&isRent=false&lookCanRent=0&onlineSort=&priceSort=
+    headers:
+      Host: 183.240.23.97
+      Authorization:
+    code: 0
+    msg: success
+---
+- case: 按时长计费，价格区间筛选 0-0.85
+  input:
+    url: order=&orderField=&page=1&limit=10&priceMethod=1&regionId=&gpuModelId=&gpuNum=&gpuCardAvailable=&minPrice=0&maxPrice=0.85&sort=&isRent=false&lookCanRent=0&onlineSort=&priceSort=
+    headers:
+      Host: 183.240.23.97
+      Authorization:
+    code: 0
+    msg: success
+---
+- case: 包周计费，价格区间筛选 0-138.88
+  input:
+    url: order=&orderField=&page=1&limit=10&priceMethod=3&regionId=&gpuModelId=&gpuNum=&gpuCardAvailable=&minPrice=0&maxPrice=138.88&sort=&isRent=false&lookCanRent=0&onlineSort=&priceSort=
+    headers:
+      Host: 183.240.23.97
+      Authorization:
+    code: 0
+    msg: success
