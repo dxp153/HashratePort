@@ -180,5 +180,5 @@ if __name__ == "__main__":
         "database": 'computing'
     }
     operate_tablename = "sc_order"
-    r = MySql(operate_tablename, my_sqldb_config_param).select_by_sql("SELECT * FROM sc_order")
+    r = MySql(operate_tablename, my_sqldb_config_param).select_by_sql("SELECT COUNT(*) FROM sc_order")
     print(r)
